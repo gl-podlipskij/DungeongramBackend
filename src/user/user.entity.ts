@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 export interface UserCreationAttributes {
   email: string;
@@ -6,18 +6,18 @@ export interface UserCreationAttributes {
   password: string;
 }
 
-@Entity('user')
+@Entity("user")
 class User {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @Column({ type: 'varchar', length: 255 })
+  @Column({ type: "varchar", length: 255 })
   email: string;
 
-  @Column({ type: 'varchar', length: 128 })
+  @Column({ type: "varchar", length: 128 })
   nickname: string;
 
-  @Column({ type: 'varchar', length: 128 })
+  @Column({ type: "varchar", length: 128 })
   password: string;
 }
 

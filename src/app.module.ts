@@ -1,16 +1,17 @@
-import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserModule } from './user/user.module';
-import User from './user/user.entity';
+import { Module } from "@nestjs/common";
+import { ConfigModule } from "@nestjs/config";
+import { TypeOrmModule } from "@nestjs/typeorm";
+import { UserModule } from "./user/user.module";
+import { AuthModule } from "./auth/auth.module";
+import User from "./user/user.entity";
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: 'env',
+      envFilePath: "env",
     }),
     TypeOrmModule.forRoot({
-      type: 'postgres',
+      type: "postgres",
       host: process.env.DB_HOST,
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
@@ -19,6 +20,7 @@ import User from './user/user.entity';
       synchronize: true,
     }),
     UserModule,
+    AuthModule,
   ],
 })
 export class AppModule {}
